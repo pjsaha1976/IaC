@@ -1,3 +1,7 @@
+provider "azurerm" {
+  features {}
+}
+
 resource "azurerm_policy_definition" "require_tags_on_resources" {
   name         = var.policy_name
   policy_type  = "Custom"
