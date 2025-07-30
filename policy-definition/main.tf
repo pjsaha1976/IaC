@@ -15,7 +15,7 @@ provider "azurerm" {
   client_secret   = var.client_secret
   tenant_id       = var.tenant_id
   subscription_id = var.subscription_id
-  resource_provider_registrations = none
+  resource_provider_registrations = "none"
 }
 
 resource "azurerm_policy_definition" "require_tags_on_resources" {
