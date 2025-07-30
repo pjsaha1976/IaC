@@ -11,6 +11,8 @@
     "client_secret": "{{user `client_secret`}}",
     "tenant_id": "{{user `tenant_id`}}",
     "subscription_id": "{{user `subscription_id`}}",
+    "resource_group_name": "Azuredevops",
+    "storage_account": "pjstorageaccountforweb",
     "managed_image_resource_group_name": "Azuredevops",
     "managed_image_name": "packer-ubuntu-server-{{timestamp}}",
     "os_type": "Linux",
