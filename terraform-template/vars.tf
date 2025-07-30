@@ -10,11 +10,6 @@ variable "location" {
   default     = "East US"
 }
 
-variable "ssh_public_key_path" {
-  description = "Path to the SSH public key"
-  type        = string
-}
-
 variable "admin_password" {
   description = "Admin password for the VM"
   type        = string
