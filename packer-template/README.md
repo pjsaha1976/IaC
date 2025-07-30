@@ -1,13 +1,12 @@
-# Packer Template for Flask Web Server on Azure Ubuntu VM
+# Packer Template for Azure Ubuntu Server
 
-This repository contains a Packer template to build an Azure-managed image with Ubuntu and a sample Flask web server pre-installed.
+This repository contains a Packer template to build a managed image on Azure using Ubuntu Server. The image includes a simple HTTP server for demonstration.
 
 ## Features
 
-- Builds an Ubuntu 18.04-LTS image using Azure ARM builder.
-- Installs Python 3 and Flask.
-- Deploys a simple Flask web application running on port 80.
-- Uses environment variables for Azure authentication.
+- Builds an Ubuntu 18.04-LTS managed image using the Azure ARM builder.
+- Installs BusyBox and runs a basic HTTP server on port 80.
+- Uses environment variables for secure Azure authentication.
 
 ## Prerequisites
 
@@ -44,18 +43,18 @@ packer plugins install github.com/hashicorp/azure
 
 2. **Result**
 
-   The build creates a managed image in the specified Azure resource group. You can use this image to launch VMs with Flask pre-installed.
+   The build creates a managed image in the specified Azure resource group (`Azuredevops`). You can use this image to launch VMs with the HTTP server pre-installed.
 
 ## Template Overview
 
 - **builders**: Uses the `azure-arm` builder to create an Ubuntu image in Azure.
-- **provisioners**: Installs Python, Flask, and sets up a basic Flask app.
+- **provisioners**: Installs BusyBox and sets up a basic HTTP server.
 
 ## Customization
 
 - Update the `managed_image_resource_group_name`, `location`, or VM size as needed in `server.json`.
-- Modify the provisioner section to deploy your own Flask app or additional dependencies.
+- Modify the provisioner section to deploy your own application or additional dependencies.
 
 ## References
 
-- [Packer Azure Builder Documentation](https://developer.hashicorp.com/packer/plugins/builders/azure/azure-arm)
+-
