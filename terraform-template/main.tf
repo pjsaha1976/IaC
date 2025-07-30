@@ -106,7 +106,7 @@ resource "azurerm_availability_set" "main_avset" {
 
 data "azurerm_image" "packer_image" {
   name                = "packer-ubuntu-server"
-  resource_group = "Azuredevops"
+  resource_group_name = "Azuredevops"
 }
 
 resource "azurerm_linux_virtual_machine" "main_vm" {
