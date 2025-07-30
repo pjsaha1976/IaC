@@ -23,6 +23,15 @@ Set the following environment variables before running Packer:
 export ARM_CLIENT_ID="your-azure-client-id"
 export ARM_CLIENT_SECRET="your-azure-client-secret"
 export ARM_SUBSCRIPTION_ID="your-azure-subscription-id"
+export ARM_TENANT_ID="your-azure-tenant-id"
+```
+
+## Install Azure Plugin for Packer
+
+Before building, install the Azure plugin:
+
+```sh
+packer plugins install github.com/hashicorp/azure
 ```
 
 ## Usage
@@ -30,7 +39,6 @@ export ARM_SUBSCRIPTION_ID="your-azure-subscription-id"
 1. **Build the Image**
 
    ```sh
-   packer plugins install github.com/hashicorp/azure
    packer build server.json
    ```
 
@@ -45,10 +53,9 @@ export ARM_SUBSCRIPTION_ID="your-azure-subscription-id"
 
 ## Customization
 
-- Update the `resource_group_name`, `location`, or VM size as needed in `server.json`.
+- Update the `managed_image_resource_group_name`, `location`, or VM size as needed in `server.json`.
 - Modify the provisioner section to deploy your own Flask app or additional dependencies.
 
 ## References
 
 - [Packer Azure Builder Documentation](https://developer.hashicorp.com/packer/plugins/builders/azure/azure-arm)
--
