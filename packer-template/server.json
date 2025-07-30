@@ -21,13 +21,16 @@
     "location": "East US",
     "vm_size": "Standard_D2s_v3"
   }],
-  "provisioners": [{
-    "type": "shell",
+ "provisioners": [{
+    "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
     "inline": [
-      "echo 'Hello, World!' > index.html",
-      "nohup busybox httpd -f -p 80 &"
+      "apt-get update",
+      "apt-get upgrade -y",
+      "apt-get -y install nginx",
+
+      "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"
     ],
     "inline_shebang": "/bin/sh -x",
-    "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'"
+    "type": "shell"
   }]
 }
