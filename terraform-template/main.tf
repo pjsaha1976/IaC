@@ -87,7 +87,6 @@ resource "azurerm_lb" "main_lb" {
 resource "azurerm_lb_backend_address_pool" "main_bepool" {
   name                = "${var.prefix}-bepool"
   loadbalancer_id     = azurerm_lb.main_lb.id
-  resource_group_name = "Azuredevops"
 }
 
 resource "azurerm_network_interface_backend_address_pool_association" "main_nic_lb_assoc" {
