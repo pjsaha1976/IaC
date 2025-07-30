@@ -19,7 +19,7 @@ variable "admin_password" {
 variable "vm_count" {
   description = "Number of virtual machines to deploy"
   type        = number
-  default     = 1
+  default     = 2
 }
 
 variable "client_id" {
