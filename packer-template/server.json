@@ -19,11 +19,7 @@
     "image_sku": "18.04-LTS",
     "image_version": "latest",
     "location": "East US",
-    "vm_size": "Standard_D2s_v3",
-    "tags": {
-      "environment": "dev",
-      "owner": "pjsaha"
-    }
+    "vm_size": "Standard_D2s_v3"
   }],
   "provisioners": [{
     "type": "shell",
