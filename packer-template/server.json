@@ -12,7 +12,7 @@
     "tenant_id": "{{user `tenant_id`}}",
     "subscription_id": "{{user `subscription_id`}}",
     "managed_image_resource_group_name": "Azuredevops",
-    "managed_image_name": "packer-ubuntu-server-{{timestamp}}",
+    "managed_image_name": "packer-ubuntu-server",
     "os_type": "Linux",
     "image_publisher": "Canonical",
     "image_offer": "UbuntuServer",
