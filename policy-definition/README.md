@@ -12,15 +12,7 @@ This Terraform module defines a custom Azure Policy that ensures all indexed res
 
 ## Usage
 
-1. **Set the Policy Name**
-
-   Provide the policy name using a `terraform.tfvars` file or via the `-var` flag:
-
-   ```hcl
-   policy_name = "tagging-policy"
-   ```
-
-2. **Deploy the Policy**
+1. **Deploy the Policy**
 
    Initialize and apply the Terraform configuration:
 
@@ -30,12 +22,20 @@ This Terraform module defines a custom Azure Policy that ensures all indexed res
    terraform apply
    ```
 
-3. **Assign the Policy**
+2. **Assign the Policy**
 
-   After deployment, assign the policy to a subscription or resource group using the `azurerm_policy_assignment` resource.
+   After deployment, assign the policy to a subscription or resource group using the command below.
 
    ```sh
    az policy assignment create --policy tagging-policy
+   ```
+
+3. **List the Policy Assigments**
+
+   List the policy assignment using the command below.
+
+   ```sh
+   az policy assignment list
    ```
 
 ## Policy Rule
