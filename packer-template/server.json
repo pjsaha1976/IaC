@@ -9,7 +9,6 @@
 		"azure_client_id": "{{user `client_id`}}",
         "azure_client_secret": "{{user `client_secret`}}",
         "azure_subscription_id": "{{user `subscription_id`}}",
-        "azure_tenant_id": "{{user `tenant_id`}}",
         "image_publisher": "Canonical",
         "image_offer": "UbuntuServer",
         "image_sku": "18.04-LTS",
