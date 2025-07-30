@@ -26,12 +26,8 @@ This Terraform module defines a custom Azure Policy that ensures all indexed res
 
    ```sh
    az login --service-principal -u CLIENT_ID -p CLIENT_SECRET --tenant TENANT_ID
-   export ARM_CLIENT_ID="CLIENT_ID"
-   export ARM_CLIENT_SECRET="CLIENT_SECRET"
-   export ARM_TENANT_ID="TENANT_ID"
-   export ARM_SUBSCRIPTION_ID="SUBSCRIPTION_ID"
    terraform init
-   terraform apply -var="policy_name=tagging-policy"
+   terraform apply
    ```
 
 3. **Assign the Policy**
