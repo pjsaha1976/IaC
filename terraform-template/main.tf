@@ -121,11 +121,6 @@ resource "azurerm_linux_virtual_machine" "main_vm" {
   ]
   availability_set_id = azurerm_availability_set.main_avset.id
 
-  admin_ssh_key {
-    username   = "azureuser"
-    public_key = file(var.ssh_public_key_path)
-  }
-
   source_image_id = data.azurerm_image.packer_image.id
 
   os_disk {
