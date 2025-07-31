@@ -48,7 +48,7 @@ packer plugins install github.com/hashicorp/azure
 ## Template Overview
 
 - **builders**: Uses the `azure-arm` builder to create an Ubuntu image in Azure.
-- **provisioners**: Installs BusyBox and sets up a basic HTTP server.
+- **provisioners**: Installs nginx and sets up a basic HTTP server.
 
 ## Customization
 
