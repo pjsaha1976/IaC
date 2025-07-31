@@ -10,6 +10,12 @@ variable "location" {
   default     = "East US"
 }
 
+variable "project_name" {
+  description = "The name of the project for tagging"
+  type        = string
+  default     = "Udacity-Costco-Cloud-Infrastructure"
+}
+
 variable "admin_password" {
   description = "Admin password for the VM"
   type        = string

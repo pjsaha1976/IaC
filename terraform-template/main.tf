@@ -22,20 +22,8 @@ resource "azurerm_network_security_group" "main_nsg" {
   resource_group_name = "Azuredevops"
 
   security_rule {
-    name                       = "Allow-Subnet-Inbound"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "*"
-    source_port_range          = "*"
-    destination_port_range     = "*"
-    source_address_prefix      = "10.0.1.0/24"
-    destination_address_prefix = "10.0.1.0/24"
-  }
-
-  security_rule {
     name                       = "Deny-Internet-Inbound"
-    priority                   = 200
+    priority                   = 100
     direction                  = "Inbound"
     access                     = "Deny"
     protocol                   = "*"
@@ -43,6 +31,42 @@ resource "azurerm_network_security_group" "main_nsg" {
     destination_port_range     = "*"
     source_address_prefix      = "Internet"
     destination_address_prefix = "*"
+  }
+
+  security_rule {
+    name                       = "Allow-HTTP-From-LB"
+    priority                   = 200
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "AzureLoadBalancer"
+    destination_address_prefix = "*"
+  }
+  
+  security_rule {
+    name                       = "Allow-VNet-Inbound"
+    priority                   = 300
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "VirtualNetwork"
+    destination_address_prefix = "VirtualNetwork"
+  }
+
+  security_rule {
+    name                       = "Allow-VNet-Outbound"
+    priority                   = 400
+    direction                  = "Outbound"
+    access                     = "Allow"
+    protocol                   = "*"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "VirtualNetwork"
+    destination_address_prefix = "VirtualNetwork"
   }
 }
 
@@ -110,6 +134,9 @@ data "azurerm_image" "packer_image" {
 
 resource "azurerm_linux_virtual_machine" "main_vm" {
   name                = "${var.prefix}-vm"
+  tags = {
+    Project = var.project_name
+  }
   location            = var.location
   resource_group_name = "Azuredevops"
   size                = "Standard_D2s_v3"
